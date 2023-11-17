@@ -1,62 +1,65 @@
-// Função para realizar as jogas
-$('#container div.row div').click(function(){
+
+        // Create a center tag to center all the elements
+        var center = document.createElement('center');
   
-    // Captura o ID da posição da peça
-    var id = $(this).attr('id');
-   
-    // Captura o conteudo da seleção (Imagem peça)
-    var peca = $(this).text();
-   
-    // inclui a peça seleciona no WebStoraged utilizando a   função setPosicaoPeca. Caso a peça já esteja selecionada anteriormente, a mesma e posicionada no local desejada e é limpada do webStoraged
-    if (peca != ""){
-       setPosicaoPeca(id, peca);
-       $(this).text("");
+        // Create a table element
+        var ChessTable = document.createElement('table');
+        for (var i = 0; i < 8; i++) {
+  
+            // Create a row
+            var tr = document.createElement('tr');
+            for (var j = 0; j < 8; j++) {
+  
+                // Create a cell
+                var td = document.createElement('td');
+  
+                // If the sum of cell coordinates is even
+                // then color the cell white
+                if ((i + j) % 2 == 0) {
+  
+                    // Create a class attribute for all white cells
+                    td.setAttribute('class', 'cell whitecell');
+                    tr.appendChild(td);
+                }
+  
+                // If the sum of cell coordinates is odd then
+                // color the cell black
+                else {
+  
+                    // Create a class attribute for all black cells
+                    td.setAttribute('class', 'cell blackcell');
+  
+                    // Append the cell to its row
+                    tr.appendChild(td);
+                }
+            }
+  
+            // Append the row
+            ChessTable.appendChild(tr);
+        }
+        center.appendChild(ChessTable);
+  
+        // Modifiying table attribute properties
+        ChessTable.setAttribute('cellspacing', '0');
+        ChessTable.setAttribute('width', '270px');
+        document.body.appendChild(center);
+    </script>
+  
+  <script>
+    function pred(x) {
+        if (x == 8)
+            return true;
+        else
+            return false;
     }
-    else {
-       if (getPeca()){
-          $('#'+id).text(getPeca());
-         
-             // Altera o contador de movimentos
-             $('#pontuacao').text(
-               parseInt($('#pontuacao').text()) + 1
-             );
-         
-          // funcao para limpar os dados
-          limparDados();
-       }
+    function implementPredicate(array, pred) {
+        var res = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (pred(array[i]) === true) {
+                res++;
+            }
+        }
+        return res;
     }
- })
- 
- // Função para setar a posição da peça e salvar no webstoraged
- function setPosicaoPeca(id, peca) {
-   localStorage.setItem("id", id);
-   localStorage.setItem("peca", peca);
- }
- 
- // Função para retornar o ID da peça que havia sido selecionada anteriormente
- function getPosicaoID() {
-   return localStorage.getItem("id");
- }
- 
- // Função para o retorno da peca selecionada anteriormente
- function getPeca() {
-   return localStorage.getItem('peca');
- }
- 
- // Função para limpar todos os dados 
- function limparDados() {
-   localStorage.clear();
- }
- 
- // Função para validar os dados da jogada
- function validarJogada(posicaoInicial, posicaFinal, peca)
- {
-   // Cavalo preto
-   if (peca == '&#9816') 
-   {
-     if (!(posicaoInicial - posicaFinal) == 17)
-     {
-       alert("Jogada Inválida");
-     }
-   }
- }
+    
+    
