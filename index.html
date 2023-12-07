@@ -1,187 +1,56 @@
 <!DOCTYPE html>
-<html>
-  
+<html lang="en">
 <head>
-    <title>Chess board</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login
+        Xadrez
+    </title>
     <style>
+        
         body {
-            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.712), rgb(0, 0, 0));
         }
-  
-        .cell {
-            height: 30px;
-            width: 30px;
-            border: 1.5px solid grey;
-            border-style: inset;
+        div{
+            background-color: rgba(255, 255, 255, 0.9);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 80px;
+            border-radius: 15px;
+            color: rgb(0, 0, 0);
+
         }
-  
-        .blackcell {
-            background-color: black;
+        input{
+            padding: 15px;
+            border: Nome;
+            border: Senha;
+            font-size: 15px;
         }
-  
-        .whitecell {
-            background-color: white;
+        button{
+            background-color: rgb(0, 0, 0);
+            border: Nome;
+            padding: 15px;
+            width: 100%;
+            border-radius: 10px;
+            color: white;
         }
     </style>
 </head>
-  
 <body>
-    <span style="color:green; font-size:30px;">
-        Xadrez
-    </span>
-    <br><br>
-  
-    <script type="text/javascript">
-  
-        // Create a center tag to center all the elements
-        var center = document.createElement('center');
-  
-        // Create a table element
-        var ChessTable = document.createElement('table');
-        for (var i = 0; i < 8; i++) {
-  
-            // Create a row
-            var tr = document.createElement('tr');
-            for (var j = 0; j < 8; j++) {
-  
-                // Create a cell
-                var td = document.createElement('td');
-  
-                // If the sum of cell coordinates is even
-                // then color the cell white
-                if ((i + j) % 2 == 0) {
-  
-                    // Create a class attribute for all white cells
-                    td.setAttribute('class', 'cell whitecell');
-                    tr.appendChild(td);
-                }
-  
-                // If the sum of cell coordinates is odd then
-                // color the cell black
-                else {
-  
-                    // Create a class attribute for all black cells
-                    td.setAttribute('class', 'cell blackcell');
-  
-                    // Append the cell to its row
-                    tr.appendChild(td);
-                }
-            }
-  
-            // Append the row
-            ChessTable.appendChild(tr);
-        }
-        center.appendChild(ChessTable);
-  
-        // Modifiying table attribute properties
-        ChessTable.setAttribute('cellspacing', '0');
-        ChessTable.setAttribute('width', '270px');
-        document.body.appendChild(center);
-    </script>
-    <html>
-        <head>
-            <link rel="stylesheet" href="estilo.css" type="text/css"/>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-            <script type="text/javascript" src="montarTabuleiro.js"></script>
-        </head>
-        <body>
-            <div id="tabuleiro">
-            </div>
-            <div id="info">
-                <ul>
-                   
-                </ul>
-            </div>
-        </body>
-        </html>
-        </div>
-        </body>
-        <!-- Used to get images -->
-<base href="http://chessboardjs.com/" />
-<h3 class="board">
-jogador 1
-
-</h3>
-<div id="board" class="board"></div>
-<br>
-<div class="info">
-    seus pontos
-
-    <select id="search-depth">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-
-    <br>
-    <span> <span id="position-count"></span></span>
-    <br>
-    <span> <span id="time"></span></span>
-    <br>
-    <span><span id="positions-per-s"></span> </span>
-    <br>
-    <br>
-    <div id="move-history" class="move-history">
+    <div>
+        <h1>Tela de Login</h1>
+            <h1>Xadrez</h1>
+        <input type="text" placeholder="Nome">
+        <br><br>
+        <input type="password" placeholder="Senha">
+        <br><br>
+        
+        <a href="cadastro.html"><button>Enviar</button></a><br><br>
     </div>
-</div>
-<!-- Used to get images -->
-<base href="http://chessboardjs.com/" />
-<h3 class="board">
-jogador 2
-</h3>
-<div id="board" class="board"></div>
-<br>
-<div class="info">
-    <div id="move-history" class="move-history">
-    </div>
-</div>
-<!-- Used to get images -->
-<base href="http://chessboardjs.com/" />
-<h3 class="board">
-
-</h3>
-<div id="board" class="board"></div>
-<br>
-<div class="info">
-    <div id="move-history" class="move-history">
-    </div>
-</div>
-<!-- Used to get images -->
-<base href="http://chessboardjs.com/" />
-<h3 class="board">
-
-</h3>
-<div id="board" class="board"></div>
-<br>
-<div class="info">
-  seus pontos
-    <select id="search-depth">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-
-    <br>
-    <span><span id="position-count"></span></span>
-    <br>
-    <span> <span id="time"></span></span>
-    <br>
-    <span> <span id="positions-per-s"></span> </span>
-    <br>
-    <br>
-    <div id="move-history" class="move-history">
-    </div>
-</div>
-<!-- Used to get images -->
-<base href="http://chessboardjs.com/" />
-<h3 class="board">
-
-</h3>
-<div id="board" class="board"></div>
-<br>
-<div class="info">
-   
+    
+</body>
+</html>
